@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenga Collapse</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="game-canvas"></canvas>
+
+    <div id="ui-overlay">
+        <!-- Multiplier display -->
+        <div id="multiplier-display">1.00x</div>
+
+        <!-- Bet screen -->
+        <div id="bet-screen" class="screen active">
+            <div class="bet-container">
+                <h1 class="game-title">JENGA<br>COLLAPSE</h1>
+                <div class="balance-display">
+                    <span class="label">BALANCE</span>
+                    <span id="balance-amount">1,000</span>
+                </div>
+                <div class="bet-input-group">
+                    <span class="label">BET AMOUNT</span>
+                    <div class="bet-controls">
+                        <button class="bet-adjust" data-action="half">1/2</button>
+                        <input type="number" id="bet-input" value="100" min="1">
+                        <button class="bet-adjust" data-action="double">2x</button>
+                    </div>
+                    <div class="bet-presets">
+                        <button class="bet-preset" data-amount="10">10</button>
+                        <button class="bet-preset" data-amount="50">50</button>
+                        <button class="bet-preset" data-amount="100">100</button>
+                        <button class="bet-preset" data-amount="500">500</button>
+                        <button class="bet-preset" data-amount="0" data-action="max">MAX</button>
+                    </div>
+                </div>
+                <button id="start-btn" class="primary-btn">START</button>
+            </div>
+        </div>
+
+        <!-- Game HUD -->
+        <div id="game-hud" class="screen">
+            <div id="pull-count">PULL 0</div>
+            <div id="potential-win">
+                <span class="label">POTENTIAL WIN</span>
+                <span id="win-amount">0</span>
+            </div>
+            <div class="game-buttons">
+                <button id="cashout-btn" class="cashout-btn">
+                    <span class="btn-label">CASH OUT</span>
+                    <span id="cashout-amount">0</span>
+                </button>
+                <button id="pull-btn" class="pull-btn">
+                    <span class="btn-label">PULL</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Busted overlay -->
+        <div id="busted-screen" class="screen">
+            <div class="result-container busted">
+                <div class="result-text">BUSTED</div>
+                <div class="result-amount">0.00x</div>
+                <div class="result-lost" id="lost-amount">-100</div>
+                <button class="primary-btn" id="busted-continue">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Cash out overlay -->
+        <div id="win-screen" class="screen">
+            <div class="result-container win">
+                <div class="result-text">CASHED OUT</div>
+                <div class="result-amount" id="win-multiplier">2.45x</div>
+                <div class="result-won" id="won-amount">+245</div>
+                <button class="primary-btn" id="win-continue">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Screen crack overlay -->
+        <div id="screen-crack"></div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
