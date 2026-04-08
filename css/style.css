@@ -31,7 +31,7 @@ body {
     pointer-events: none;
 }
 
-#ui-overlay > * {
+#ui-overlay .screen.active {
     pointer-events: auto;
 }
 
